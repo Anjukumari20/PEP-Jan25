@@ -1,0 +1,8 @@
+queue follows fifo
+exit from front
+entry from rear
+applications of queue
+Task Scheduling
+Resource Allocation
+Breadth-first search algorithm
+Operating systems

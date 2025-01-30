@@ -1,0 +1,1 @@
+//floyd loop detection algorith says if slow== fast then loop exsits or if any one variable first reaches to null then no loop exits
