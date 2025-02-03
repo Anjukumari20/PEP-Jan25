@@ -1,70 +1,73 @@
 #include<iostream>
 #include<stack>
 using namespace std;
+ 
+bool isValid(string s){
+    stack<char> st;
 
-bool isvalid(string s,int size)
-{
-    stack<char>st;
-
-    bool ans=true;
-    for(int i=0;i<size-1;i++)
-    {
-        if(s[i]=='(' || s[i]=='{' || s[i]=='[')
-        {
+    bool ans = true;
+    for(int i = 0; i < s.size();i++){
+        if(s[i] == '(' || s[i] == '{' || s[i] == '['){
             st.push(s[i]);
         }
 
-        else if(s[i]=')'){
-            if(st.top() =='('&& !st.empty()){
+        else if(s[i] == ')'){
+            if(st.top() == '(' && !st.empty()){
                 st.pop();
             }
             else{
-                ans=false;
+                ans = false;
                 break;
             }
         }
-        else if(s[i]='}'){
-            if(st.top()== '{' && !st.empty()){
+        else if(s[i] == '}'){
+            if(st.top() == '{' && !st.empty()){
                 st.pop();
             }
             else{
-                ans=false;
+                ans = false;
                 break;
             }
         }
 
-         else if(s[i]=']'){
-            if(st.top()== '[' && !st.empty()){
+        else if(s[i] == ']'){
+            if(st.top() == '[' && !st.empty()){
                 st.pop();
             }
             else{
-                ans=false;
+                ans = false;
                 break;
             }
         }
     }
     return ans;
-}
+} 
 
+
+/*
+   bool isValid(string s) {
+              stack<char> stack;
+        unordered_map<char, char> map = {{')', '('}, {'}', '{'}, {']', '['}};
+        
+        for (char c : s) {
+            if (map.count(c)) {
+                if (stack.empty() || stack.top() != map[c]) {
+                    return false;
+                }
+                stack.pop();
+            } else {
+                stack.push(c);
+            }
+        }
+        return stack.empty();
+    }777735e54q33;l=*/
 int main()
 {
-    /*int size;
-    cout<<"enter size:"<<endl;
-    cin>>size;
-    string sy;
-    cout<<"enter symbols:"<<endl;
-    cin>>sy;*/
-    string sy="(){]}[]";
-    int size=7;
-    bool ans=isvalid(sy,size);
-    if(ans==true)
-    {
-        cout<<"balanced"<<endl;
+    string str = "({}]";
+    if(isValid(str)){
+        cout << "Valid" << endl;
     }
     else{
-        cout<<"not balanced"<<endl;
+        cout << "Invalid" << endl;
     }
-    
-
-    return 0;
 }

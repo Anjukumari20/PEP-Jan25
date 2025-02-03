@@ -84,7 +84,7 @@ void display(Node*head)
         cout<< "NULL" <<endl;
     }
 
-Node* floydLoopDetect(Node* head)
+Node* floydLoopDetect(Node* head) 
 {
     // 1st ques find loop
     Node* slow=head;
